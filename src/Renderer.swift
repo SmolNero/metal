@@ -26,6 +26,7 @@ class Renderer: NSObject, MTKViewDelegate {
 			print("Failed to create command queue")
 			return nill
 		}
+		self.commandQueue = commandQueue
 	}
 
 }

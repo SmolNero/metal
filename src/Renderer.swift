@@ -17,9 +17,16 @@ class Renderer: NSObject, MTKViewDelegate {
 		guard let device = MTLCreateSystemDefaultDevice() else {
 			print("Metal is not supported on this device")
 			return nill
-		
+		}
+
+		self.device = device
+
+		//Create the command queue
+		guard let commandQueue = commandQueue() else {
+			print("Failed to create command queue")
+			return nill
 		}
 	}
 
-
 }
+

@@ -32,7 +32,8 @@ class Renderer: NSObject, MTKViewDelegate {
 		mtkView.device = device
 		mtkView.clearColor = MTLClearColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
 
-		// 
+		// Create vertices for a square (two triangles)
+		let vertices
 
 	}
 

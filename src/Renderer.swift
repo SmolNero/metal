@@ -54,6 +54,11 @@ class Renderer: NSObject, MTKViewDelegate {
 	}
 	self.vertexBuffer = vertexBuffer
 
+	// Set up render pipeline
+	let library: MTLLibrary
+	do {
 
-}
+
+		
+	}
 

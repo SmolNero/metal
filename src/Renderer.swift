@@ -27,7 +27,15 @@ class Renderer: NSObject, MTKViewDelegate {
 			return nill
 		}
 		self.commandQueue = commandQueue
+
+		// Connfig MetalKit view - slightly  lighter shade of black
+		mtkView.device = device
+		mtkView.clearColor = MTLClearColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
+
+		// 
+
 	}
+
 
 }
 

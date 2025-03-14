@@ -22,6 +22,7 @@ class Renderer: NSObject, MTKViewDelegate {
 		self.device = device
 
 		//Create the command queue
+		// Guard is used for invalid parameters
 		guard let commandQueue = commandQueue() else {
 			print("Failed to create command queue")
 			return nill
@@ -46,9 +47,8 @@ class Renderer: NSObject, MTKViewDelegate {
 		]
 
 		// Creating Vertex buffer
-		let vertexBufferSize = vertices.count * MemoryLayout <Vertex>.stride
-
-	}
+		let vertexBufferSize = vertices.count * MemoryLayout<Vertex>.stride
+		guard let vertexBuffer = device.makeBuffer(bytes: vertices, length: vertexBufferSize, options: [])else
 
 
 }

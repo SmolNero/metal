@@ -33,7 +33,17 @@ class Renderer: NSObject, MTKViewDelegate {
 		mtkView.clearColor = MTLClearColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
 
 		// Create vertices for a square (two triangles)
-		let vertices
+		let vertices = [
+			// First triangle (bottom left, top left , bottom right)
+			Vertex(position: vector_ float3(-0.5, -0.5, 0.0), color: vector_float4(0.0,0.0,0.0,1.0)),
+			Vertex(position: vector_ float3(-0.5, 0.5, 0.0), color: vector_float4(0.0,0.0,0.0,1.0)),
+			Vertex(position: vector_ float3(0.5, -0.5, 0.0), color: vector_float4(0.0,0.0,0.0,1.0)),
+		
+			// Second triangle (bottom left, top left, bottom right)
+			Vertex(position: vector_ float3(-0.5, 0.5, 0.0), color: vector_float4(0.0,0.0,0.0,1.0)),
+			Vertex(position: vector_ float3(-0.5, -0.5, 0.0), color: vector_float4(0.0,0.0,0.0,1.0)),
+			Vertex(position: vector_ float3(0.5, -0.5, 0.0), color: vector_float4(0.0,0.0,0.0,1.0)),
+		]
 
 	}
 

@@ -49,6 +49,10 @@ class Renderer: NSObject, MTKViewDelegate {
 		// Creating Vertex buffer
 		let vertexBufferSize = vertices.count * MemoryLayout<Vertex>.stride
 		guard let vertexBuffer = device.makeBuffer(bytes: vertices, length: vertexBufferSize, options: [])else
+			print("Failed to create vertex buffer")
+			return nil
+	}
+	self.vertexBuffer = vertexBuffer
 
 
 }

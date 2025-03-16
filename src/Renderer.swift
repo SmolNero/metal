@@ -60,7 +60,12 @@ class Renderer: NSObject, MTKViewDelegate {
 		// Load the compiled Metal library from the bundle
 		let libraryURL = URL(fileURLWithPath: "build/default.metalib")
 		library = try device.makeLibrary(URL: libraryURL)
-		
+	} catch {
+		print("Failed to load Metal library: \(error)")
+		return nil
+	}
+
+
 
 
 		 

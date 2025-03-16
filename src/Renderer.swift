@@ -59,6 +59,8 @@ class Renderer: NSObject, MTKViewDelegate {
 	do {
 		// Load the compiled Metal library from the bundle
 		let libraryURL = URL(fileURLWithPath: "build/default.metalib")
+		library = try device.makeLibrary(URL: libraryURL)
+		
 
 
 		 

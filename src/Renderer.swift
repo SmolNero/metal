@@ -64,16 +64,17 @@ class Renderer: NSObject, MTKViewDelegate {
 		print("Failed to load Metal library: \(error)")
 		return nil
 	} 
-	
+
 	guard let vertexFunction = library.makeFunction(name:"vertex_main"),
 		  let fragmentFunction = library.makeFunction(name: "fragment_main") else {
 		print("Failed to find Metal functions in the library")
 		return nil
 	}
+	
+	let pipelineDescriptor = MTLRenderPipeLineDesriptor()
+	pipelineDescriptor.vertexFunction = vertexFunction
+	pipelineDescriptor.fragmentFunction = fragmentFunction
+	pipelineDescriptor.colorAttachment[0].pixelFormat = mtkView.colorPixelFormat
 
-
-
-
-		 
 	}
 

@@ -58,10 +58,16 @@ class Renderer: NSObject, MTKViewDelegate {
 	let library: MTLLibrary
 	do {
 		// Load the compiled Metal library from the bundle
-		let libraryURL = URL(fileURLWithPath: "build/default.metalib")
+		let libraryURL = URL(fileURLWithPath: "build/default.metallib")
 		library = try device.makeLibrary(URL: libraryURL)
 	} catch {
 		print("Failed to load Metal library: \(error)")
+		return nil
+	} 
+	
+	guard let vertexFunction = library.makeFunction(name:"vertex_main"),
+		  let fragmentFunction = library.makeFunction(name: "fragment_main") else {
+		print("Failed to find Metal functions in the library")
 		return nil
 	}
 

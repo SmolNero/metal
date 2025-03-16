@@ -76,5 +76,12 @@ class Renderer: NSObject, MTKViewDelegate {
 	pipelineDescriptor.fragmentFunction = fragmentFunction
 	pipelineDescriptor.colorAttachment[0].pixelFormat = mtkView.colorPixelFormat
 
+	do {
+		pipelineState = try device.makeRenderPipelineState(descriptor: pipelineDescriptor)
+	} catch {
+		print("Failed to create render pipeline state: \(error)")
+		return nil
+	}
+
 	}
 

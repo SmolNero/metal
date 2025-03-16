@@ -57,6 +57,7 @@ class Renderer: NSObject, MTKViewDelegate {
 	// Set up render pipeline
 	let library: MTLLibrary
 	do {
+		// Load the compiled Metal library from the bundle
 
 
 		 
